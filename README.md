@@ -43,11 +43,16 @@ This project is submitted as part of the **CAPSTONE PROJECT** course, Faculty of
 
 ## 🛠️ Tech Stack
 
-- **Frontend**: HTML5, CSS3, Vanilla JavaScript
-- **Backend**: Node.js · Express.js · JWT · Multer · MySQL (mysql2)
-- **AI / ML API**: Python · Flask · PyTorch · MNE-Python · Torchaudio (STFT)
-- **Chatbot**: Typhoon LLM API
-- **Database**: MySQL
+- **Frontend**: HTML5, CSS3, Vanilla JavaScript (no React/Vue framework, no Tailwind)
+  - Chart.js 4.4.0 — epoch risk and band power charts (`predict.html`)
+  - Font Awesome 6.5.0 — icons
+- **Backend**: Node.js · Express 5 · JWT (jsonwebtoken) · Multer (uploads) · cors · dotenv
+  - Calls the chatbot LLM through the `openai` SDK (OpenAI-compatible client)
+- **Database**: MySQL 8.0 (accessed via `mysql2` connection pool)
+- **AI / ML API**: Python · Flask · flask-cors · PyTorch · MNE-Python · Torchaudio (STFT) · NumPy
+  - The EEG model runs in its own Python service, separate from the Node backend
+- **Chatbot (AI Companion)**: Typhoon LLM API (`typhoon-v2.5-30b-a3b-instruct`) via `https://api.opentyphoon.ai/v1`, called from the Node backend
+- **Deployment**: Docker Compose — 4 services (MySQL, Node backend, Python AI, Nginx frontend)
 
 ## Option A — Docker (Recommended)
 
